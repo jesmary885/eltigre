@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaNegocioController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,11 +29,16 @@ Route::get('/', [App\Http\Controllers\WelcomeController::class,'index'], [
     'canRegister' => Route::has('register'),
 ])->name('home');
 
+
+
 Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
 
+    //Route::get('negocios/{categoria}', [App\Http\Controllers\CategoriaNegocioController::class,'index'])->name('negocio_categoria');
+
+    Route::resource('negocios',App\Http\Controllers\CategoriaNController::class)->names('negociocat');
 
 
 

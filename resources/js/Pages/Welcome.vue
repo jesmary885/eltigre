@@ -7,7 +7,9 @@ import JetApplicationMark from '@/Jetstream/ApplicationMark.vue';
 import Search from '@/Pages/Search.vue';
 import JetDropdown from '@/Jetstream/Dropdown.vue';
 import JetDropdownLink from '@/Jetstream/DropdownLink.vue';
-import Carousel from '@/Pages/Carousel.vue'
+import Carousel from '@/Pages/Carousel.vue';
+import CategoriaNegocio from '@/Pages/CategoriaNegocio.vue';
+
 
 defineProps({
     canLogin: Boolean,
@@ -17,6 +19,11 @@ defineProps({
     categorias : Array,
     subcategorias : Array,
 });
+
+const categoria = {
+    type:Object,
+    value:null
+};
 
 
 </script>
@@ -35,14 +42,23 @@ defineProps({
                     <div class="flex items-center mb-2">
                         <h1 class="text-lg uppercase font-semibold text-gray-700">
                             {{categoria.name}}
+                           <div v-for="negocio in categoria.negocios">
+                               {{negocio}}
+                            </div>
                         </h1>
                         <a href="#" class="text-blue-600 hover:text-blue-400 hover:underline ml-2 font-semibold">Ver más</a>
-
+ 
                     </div>
+
+                    <!-- <CategoriaNegocio :categoria="categoria" /> -->
 
                 </section>
             </div>
 
+        </div>
+
+        <div>
+            
         </div>
 
         

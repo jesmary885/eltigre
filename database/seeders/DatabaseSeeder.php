@@ -22,8 +22,9 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('/public/categorias');
 
         $this->call(UserSeeder::class);
-        $this->call(NegocioSeeder::class);
         $this->call(CategoriaSeeder::class);
+        $this->call(NegocioSeeder::class);
+       
         $this->call(SubcategoriaSeeder::class);
        $this->call(NegocioSubcategoriaSeeder::class);
     }

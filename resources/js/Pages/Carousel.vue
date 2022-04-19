@@ -11,6 +11,7 @@ export default {
     Navigation,
   },
 };
+
 </script>
 
 <template>

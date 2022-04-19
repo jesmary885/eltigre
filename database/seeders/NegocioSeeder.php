@@ -27,7 +27,21 @@ class NegocioSeeder extends Seeder
                'rif' => 'J-11111111-1',
                'delivery' => 'si',
                'delivery_price' => '3',
-               'user_id' => '1'
+               'user_id' => '1',
+               'categoria_id' => '3'
+            ],
+            [
+               'name' => 'PAPELERIA JJ',
+               'direction' => 'Calle falsa nr11',
+               'phone' => '028325555515',
+               'mobile_phone' => '0414-19999199',
+               'coordinates' => '589999',
+               'plan' => 'full',
+               'rif' => 'J-11111111-1',
+               'delivery' => 'si',
+               'delivery_price' => '3',
+               'user_id' => '1',
+               'categoria_id' => '3'
             ],
             [
                 'name' => 'PANIFICADORA',
@@ -39,7 +53,8 @@ class NegocioSeeder extends Seeder
                 'rif' => 'J-11111111-2',
                 'delivery' => 'si',
                 'delivery_price' => '3',
-                'user_id' => '1'
+                'user_id' => '1',
+                'categoria_id' => '1'
              ],
              [
                 'name' => 'HORTALIZAS JI',
@@ -51,7 +66,8 @@ class NegocioSeeder extends Seeder
                 'rif' => 'J-11111111-2',
                 'delivery' => 'si',
                 'delivery_price' => '3',
-                'user_id' => '1'
+                'user_id' => '1',
+                'categoria_id' => '1'
              ],
              [
                 'name' => 'ACADEMIA DE BAILE RR',
@@ -63,8 +79,35 @@ class NegocioSeeder extends Seeder
                 'rif' => 'J-11111111-5',
                 'delivery' => 'si',
                 'delivery_price' => '3',
-                'user_id' => '1'
+                'user_id' => '1',
+                'categoria_id' => '3'
              ],
+             [
+               'name' => 'ACADEMIA YY',
+               'direction' => 'Calle falsa nr44',
+               'phone' => '028342555355',
+               'mobile_phone' => '0414-19999459',
+               'coordinates' => '58999495',
+               'plan' => 'full',
+               'rif' => 'J-11111111-5',
+               'delivery' => 'si',
+               'delivery_price' => '3',
+               'user_id' => '1',
+               'categoria_id' => '3'
+            ],
+            [
+               'name' => 'CYBER UUY',
+               'direction' => 'Calle falsa nr544',
+               'phone' => '0283425555355',
+               'mobile_phone' => '0414-195999459',
+               'coordinates' => '589995495',
+               'plan' => 'full',
+               'rif' => 'J-11111111-5',
+               'delivery' => 'si',
+               'delivery_price' => '3',
+               'user_id' => '1',
+               'categoria_id' => '3'
+            ],
              [
                 'name' => 'COMPUTER CENTER',
                 'direction' => 'Calle falsa nr5',
@@ -75,7 +118,8 @@ class NegocioSeeder extends Seeder
                 'rif' => 'J-11111111-5',
                 'delivery' => 'si',
                 'delivery_price' => '3',
-                'user_id' => '1'
+                'user_id' => '1',
+                'categoria_id' => '4'
              ],
              [
                 'name' => 'LA LINDA',
@@ -87,7 +131,8 @@ class NegocioSeeder extends Seeder
                 'rif' => 'J-11111111-6',
                 'delivery' => 'si',
                 'delivery_price' => '3',
-                'user_id' => '1'
+                'user_id' => '1',
+                'categoria_id' => '5'
              ],
              [
                 'name' => 'FARMACIA GT',
@@ -99,8 +144,22 @@ class NegocioSeeder extends Seeder
                 'rif' => 'J-11111111-7',
                 'delivery' => 'si',
                 'delivery_price' => '3',
-                'user_id' => '1'
+                'user_id' => '1',
+                'categoria_id' => '2'
              ],
+             [
+               'name' => 'PELUQUERIA FAML',
+               'direction' => 'Calle falsa nr8',
+               'phone' => '028325538',
+               'mobile_phone' => '0414-1999598',
+               'coordinates' => '5899958',
+               'plan' => 'full',
+               'rif' => 'J-11111111-3',
+               'delivery' => 'si',
+               'delivery_price' => '3',
+               'user_id' => '1',
+               'categoria_id' => '6'
+            ],
             
          
 

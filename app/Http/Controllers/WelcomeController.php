@@ -12,7 +12,8 @@ class WelcomeController extends Controller
     
     public function index()
     {
-        $categorias= Categoria::all();
+        $categorias= Categoria::with('negocios')->get();
+       // dd($categorias);
         $subcategorias = Subcategoria::all();
 
         return Inertia::render('Welcome',compact('categorias','subcategorias'));

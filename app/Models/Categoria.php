@@ -15,5 +15,12 @@ class Categoria extends Model
     public function subcategorias(){
         return $this->hasMany(Subcategoria::class);
     }
+ 
+     //Relacion uno a muchos
+     public function negocios(){
+        return $this->hasMany(Negocio::class);
+    }
+
+   
 
 }

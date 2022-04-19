@@ -10,6 +10,9 @@ import JetNavLink from '@/Jetstream/NavLink.vue';
 import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
 import Navigation from '@/Pages/Navigation.vue';
 import Search from '@/Pages/Search.vue';
+import VueGlide from 'vue-glide-js'
+import 'vue-glide-js/dist/vue-glide.css'
+
 
 
 defineProps({
