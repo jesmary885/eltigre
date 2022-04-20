@@ -15,9 +15,9 @@ export default {
 </script>
 
 <template>
-  <carousel>
-    <slide class="h-72" v-for="slide in 2" :key="slide">
-<img src="img/Tigre.jpg" class="h-full w-full overflow-hidden rounded-md" alt="">
+  <carousel class="text-blue-500" :autoplay="5000" :wrapAround="true" >
+    <slide v-for="slide in 2" :key="slide">
+<img src="img/Tigre.jpg" class="w-full overflow-hidden" alt="">
         
     </slide>
     <template #addons>

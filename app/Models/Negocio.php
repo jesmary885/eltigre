@@ -33,5 +33,10 @@ class Negocio extends Model
         return $this->belongsToMany(Subcategoria::class)->withPivot('negocio_id', 'id');
     }
 
+     //relacion uno a muchos polimoefica
+     public function images(){
+        return $this->morphMany(Image::class, "imageable");
+    }
+
     
 }

@@ -23,58 +23,53 @@ export default {
     props: {
       categoria:Object,
       negocios_categorias :Array,
+      itemsToShow: Number,
+      itemsToScroll: Number
     },
 
-    mounted(){
+    // mounted(){
 
-      if(this.negocios_categorias){
-        this.pp=JSON.stringify(this.negocios_categorias);
-        console.log("este"+this.pp);
-      }
+    //   this.pp=JSON.stringify(this.negocios_categorias);
+    //   console.log("este"+this.pp);
 
-     // this.control();
-     //this.cat= 'peo';
-     //this.cat= JSON.stringify(this.categoria);
-     console.log("hola"+ this.categoria );
-     this.$inertia.replace(this.route('negociocat.show',this.categoria));
+    // },
 
-     //this.pp= 'holi';
-     //this.$inertia.replace(this.route('negociocat.index'),this.categoria_env);
-     //this.$inertia.replace(this.route('negocio_categoria'),categoria_env);
-    
-   // this.cat = this.categoria_env;
-     
-    },
-
-
-
-   /*  methods:{
-    control(){
-      console.log("hola"+categoria_env);
-     // this.$inertia.replace(this.route('negociocat.index'),this.categoria_env);
-    },
-  },*/
-
-   
-
-
-    
-  
 };
 
 </script>
 
-<template>
-  <carousel>
+<style>
+  :root {
+     --vc-clr-primary: rgba(60, 127, 165, 0.301);
+  }
  
-    <slide class="w-20 h-20" v-for="slide in 1" :key="slide">
-      <div v-for="negocio in negocios_categorias" :key="negocio.id">
-         {{negocio.name}}
-         </div>
+</style>
 
-         
+
+<template>
+  <carousel :items-to-show="3" :itemsToScroll="3" wrapAround="true">
+   
+      <slide class="h-full bg-white rounded-lg shadow" v-for="negocio in negocios_categorias" :key="negocio.id">
+    
+         <article class="mr-2">
+              <figure>
+                <img class=" w-full object-cover object-center" src="img/Tigre.jpg" alt="">
+              </figure>
+          <div class="py-4 px-6">
+                                <h1 class="text-lg font-semibold">
+                                    <a href="#">
+                                        {{negocio.name}}
+                                    </a>
+                                </h1>
+
+                                <p class="font-bold text-trueGray-700">Descripción</p>
+            </div>
+        </article>
+     
     </slide>
 
+    
+     
     <template #addons>
       <navigation />
     </template>
