@@ -168,8 +168,9 @@ class NegocioSeeder extends Seeder
              foreach ($negocios as $negocio){
                 $negocio_creado= Negocio::create($negocio);
                 Image::factory(4)->create([
-                    'imageable_id' => $negocio_creado->id,
-                    'imageable_type' => Negocio::class
+                    //'imageable_id' => $negocio_creado->id,
+                    'negocio_id' => $negocio_creado->id
+                   // 'imageable_type' => Negocio::class
                 ]);
              }
     }

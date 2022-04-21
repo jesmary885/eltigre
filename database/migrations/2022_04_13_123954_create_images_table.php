@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('url');
-
+            $table->unsignedBigInteger('negocio_id');
+            $table->foreign('negocio_id')->references('id')->on('negocios')->onDelete('cascade');
+/*
             $table->unsignedBigInteger('imageable_id');
-            $table->string('imageable_type');
+            $table->string('imageable_type');*/
         });
     }
 

@@ -15,9 +15,9 @@ export default {
 </script>
 
 <template>
-  <carousel class="text-blue-500" :autoplay="5000" :wrapAround="true" >
+  <carousel class="text-blue-500" :autoplay="9000" :wrapAround="true"  >
     <slide v-for="slide in 2" :key="slide">
-<img src="img/Tigre.jpg" class="w-full overflow-hidden" alt="">
+<img src="https://cdn.pixabay.com/photo/2018/02/13/06/59/smartphone-3149992__340.jpg" class="object-cover w-full h-80" alt="">
         
     </slide>
     <template #addons>

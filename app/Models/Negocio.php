@@ -34,9 +34,16 @@ class Negocio extends Model
     }
 
      //relacion uno a muchos polimoefica
-     public function images(){
+    /* public function images(){
         return $this->morphMany(Image::class, "imageable");
+    }*/
+
+     //Relacion uno a muchos
+   
+     public function images(){
+        return $this->hasMany(Image::class);
     }
 
+     
     
 }

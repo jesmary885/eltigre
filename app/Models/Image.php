@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
-    protected $fillable = ['url', 'imageable_id', 'imageable_type'];
+    protected $fillable = ['url', 'negocio_id'];
 
-    public function imageable(){
+  /*  public function imageable(){
         return $this->morphTo();
+    }*/
+//uno a muchos inversa
+    public function negocio(){
+        return $this->belongsTo(Negocio::class);
     }
     
 }

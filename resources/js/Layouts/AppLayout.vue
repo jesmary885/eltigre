@@ -65,7 +65,7 @@ const first_categorias = Inertia.page.props.categorias;
 			
 			<div class="min-h-screen bg-gray-100">
 					<!-- <Navigation /> -->
-			<header class="bg-gray-700 sticky top-0" style="z-index: 900">
+			<header class="bg-blue-800 sticky top-0" style="z-index: 900">
 				<div class="container flex items-center h-16 justify-between md:justify-start">
 					<!-- logo -->
 					<div class="shrink-0 flex items-center">

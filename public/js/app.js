@@ -23354,21 +23354,38 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      pp: null,
-      //    categoria_env:null,
+      cont: false,
       cat: null
     };
   },
   props: {
     categoria: Object,
     negocios_categorias: Array,
+    negocio: Object,
     itemsToShow: Number,
-    itemsToScroll: Number
-  } // mounted(){
+    itemsToScroll: Number,
+    images: Array,
+    snapAlign: String
+  },
+  // mounted(){
   //   this.pp=JSON.stringify(this.negocios_categorias);
   //   console.log("este"+this.pp);
   // },
-
+  methods: {
+    otra: function otra(negocio) {
+      this.cont = negocio;
+      console.log(this.cont);
+    }
+  },
+  computed: {
+    imageNegocio: function imageNegocio() {
+      this.images.forEach(function (image) {
+        //if(image.negocio_id == this.negocio){
+        //  return image.url;
+        console.log('hola' + this.negocio); // }
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -24194,7 +24211,7 @@ __webpack_require__.r(__webpack_exports__);
     phpVersion: String,
     categorias: Array,
     subcategorias: Array,
-    results: Array
+    negocioss: Array
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
@@ -25455,7 +25472,7 @@ var _hoisted_1 = {
   "class": "min-h-screen bg-gray-100"
 };
 var _hoisted_2 = {
-  "class": "bg-gray-700 sticky top-0",
+  "class": "bg-blue-800 sticky top-0",
   style: {
     "z-index": "900"
   }
@@ -27182,8 +27199,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "img/Tigre.jpg",
-  "class": "w-full overflow-hidden",
+  src: "https://cdn.pixabay.com/photo/2018/02/13/06/59/smartphone-3149992__340.jpg",
+  "class": "object-cover w-full h-80",
   alt: ""
 }, null, -1
 /* HOISTED */
@@ -27198,7 +27215,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_carousel, {
     "class": "text-blue-500",
-    autoplay: 5000,
+    autoplay: 9000,
     wrapAround: true
   }, {
     addons: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -27246,15 +27263,7 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "mr-2"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("figure", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-full object-cover object-center",
-  src: "img/Tigre.jpg",
-  alt: ""
-})], -1
-/* HOISTED */
-);
-
+var _hoisted_2 = ["src"];
 var _hoisted_3 = {
   "class": "py-4 px-6"
 };
@@ -27274,18 +27283,13 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_slide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("slide");
 
-  var _component_navigation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("navigation");
-
   var _component_carousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("carousel");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_carousel, {
     "items-to-show": 3,
     itemsToScroll: 3,
-    wrapAround: "true"
+    snapAlign: _ctx.start
   }, {
-    addons: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_navigation)];
-    }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.negocios_categorias, function (negocio) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_slide, {
@@ -27293,7 +27297,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           key: negocio.id
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("article", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(negocio.name), 1
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("article", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("figure", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+              "class": "w-full object-cover",
+              src: "/storage/".concat(negocio.images[0].url),
+              alt: ""
+            }, null, 8
+            /* PROPS */
+            , _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{image.url}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img class=\" w-full object-cover object-center\" :src=\"`/storage/${images.negocios.url}`\" alt=\"\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <figure v-for=\"image in images\" :key=\"image.id\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-if=\"image.imageable_id == negocio.id\">  "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img class=\" w-full object-cover object-center\" :src=\"`/storage/${image.url}`\" alt=\"\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(negocio.name), 1
             /* TEXT */
             )]), _hoisted_6])])];
           }),
@@ -27310,7 +27320,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  });
+  }, 8
+  /* PROPS */
+  , ["snapAlign"]);
 }
 
 /***/ }),
@@ -28902,10 +28914,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(categoria.name), 1
         /* TEXT */
         ), _hoisted_6]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CategoriaNegocio"], {
-          negocios_categorias: categoria.negocios
+          negocios_categorias: categoria.negocios,
+          images: _ctx.images
         }, null, 8
         /* PROPS */
-        , ["negocios_categorias"])])])]);
+        , ["negocios_categorias", "images"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-for=\"negocio in categoria.negocios\" :key=\"negocio.id\">\n                        {{negocio.name}}\n                        {{negocio.images[0]}} "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-for=\"imagen in negocioss.images\" :key=\"imagen.id\">\n                        {{imagen}}\n                        </div> ")])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])];
@@ -29247,7 +29260,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n:root {\r\n     --vc-clr-primary: rgba(60, 127, 165, 0.301);\n}\r\n \r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n:root {\r\n     --vc-clr-primary: rgba(60, 127, 165, 0.301);\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

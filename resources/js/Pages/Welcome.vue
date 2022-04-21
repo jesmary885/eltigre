@@ -18,7 +18,7 @@ defineProps({
     phpVersion: String,
     categorias : Array,
     subcategorias : Array,
-    results : Array,
+    negocioss : Array,
 });
 
 const categoria = {
@@ -50,8 +50,16 @@ const categoria = {
                         <a href="#" class="text-blue-600 hover:text-blue-400 hover:underline ml-2 font-semibold">Ver más</a>
                     </div>
                      <div>
-                            <CategoriaNegocio :negocios_categorias="categoria.negocios" />
+                            <CategoriaNegocio :negocios_categorias="categoria.negocios" :images="images" />
                     </div>
+
+                    <!-- <div v-for="negocio in categoria.negocios" :key="negocio.id">
+                        {{negocio.name}}
+                        {{negocio.images[0]}} -->
+                         <!-- <div v-for="imagen in negocioss.images" :key="imagen.id">
+                        {{imagen}}
+                        </div> -->
+             
                 </section>
             </div>
 
