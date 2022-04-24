@@ -17,22 +17,22 @@ class MarcaSeeder extends Seeder
     {
         $marcas = [
             [
-               'nombre' => 'LG',
+               'name' => 'LG',
             ],
             [
-                'nombre' => 'SONY',
+                'name' => 'SONY',
              ],
              [
-                'nombre' => 'ALCATEL',
+                'name' => 'ALCATEL',
              ],
              [
-                'nombre' => 'HP',
+                'name' => 'HP',
              ],
              [
-                'nombre' => 'DELL',
+                'name' => 'DELL',
              ],
              [
-                'nombre' => 'S/M',
+                'name' => 'S/M',
              ],
             
          

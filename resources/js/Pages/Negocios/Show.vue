@@ -21,7 +21,7 @@ export default {
             AppLayout,
             Carousel,
             Slide,
-            Pagination,
+          
             Navigation,
             Link,
             ResponsiveNavLink,
@@ -76,14 +76,17 @@ export default {
 
             <div>
                 <div class="bg-white rounded shadow-inner p-3 text-center">
-                    <ResponsiveNavLink :active="route().current('negocio')" :href="route('negocio',negocio_select)" class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-2">
+                    <ResponsiveNavLink :active="route().current('negocio')" :href="route('negocio',negocio_select)" class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
                                Información
                     </ResponsiveNavLink>
-                    <ResponsiveNavLink :active="route().current('negocioLoc')" :href="route('negocioLoc',negocio_select)" class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-2">
+                    <ResponsiveNavLink :active="route().current('negocioLoc')" :href="route('negocioLoc',negocio_select)" class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
                                Localización
                     </ResponsiveNavLink> 
-                    <ResponsiveNavLink :active="route().current('negocioProd')" :href="route('negocioProd',negocio_select)"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded">
-                               Productos y servicios
+                    <ResponsiveNavLink :active="route().current('negocioProd')" :href="route('negocioProd',negocio_select)"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
+                               Productos
+                    </ResponsiveNavLink>
+                    <ResponsiveNavLink :active="route().current('negocioServ')" :href="route('negocioServ',negocio_select)"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded">
+                               Servicios
                     </ResponsiveNavLink>
                 </div>
 
