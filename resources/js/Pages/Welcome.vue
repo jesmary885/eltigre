@@ -40,16 +40,25 @@ const categoria = {
            <div class="mt-0">
                <Carousel />
            </div>
+
+           <div class="bg-white rounded-lg shadow-lg mb-6 mt-6 p-4">
+      
+            <h1 class="font-bold text-gray-700 text-center text-lg">NEGOCIOS POR CATEGORIA</h1>
+
+           
+        </div>
+  
+
            <div class="container mt-2">
                <div v-for="categoria in categorias" :key="categoria.id">
-                <section class="mb-6 mt-2">
+                <section class="mb-6 mt-2 bg-white rounded-lg shadow-lg">
                     <div class="flex items-center mb-2">
-                        <h1 class="text-lg uppercase font-semibold text-gray-700">
+                        <h2 class="text-lg uppercase font-semibold text-gray-700 p-4 ml-8">
                             {{categoria.name}}
-                        </h1>
-                        <a href="#" class="text-blue-600 hover:text-blue-400 hover:underline ml-2 font-semibold">Ver más</a>
+                        </h2>
+                        <a href="#" class="text-orange-600 hover:text-blue-400 hover:underline ml-2 font-semibold">Ver más</a>
                     </div>
-                     <div>
+                     <div class="mt-4 p-2">
                             <CategoriaNegocio :negocios_categorias="categoria.negocios" :images="images" />
                     </div>
 

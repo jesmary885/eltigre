@@ -28,6 +28,7 @@
     "dependencies": {
         "vue-glide-js": "^1.3.14",
         "vue-ssr-carousel": "^1.4.0",
-        "vue3-carousel": "^0.1.38"
+        "vue3-carousel": "^0.1.38",
+        "vue3-google-map": "^0.10.0"
     }
 }

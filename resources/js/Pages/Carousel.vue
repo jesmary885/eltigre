@@ -9,19 +9,21 @@ export default {
     Slide,
     Pagination,
     Navigation,
+
   },
 };
 
 </script>
 
 <template>
-  <carousel class="text-blue-500" :autoplay="9000" :wrapAround="true"  >
+  <carousel :autoplay="12000" :wrapAround="true" :transition="800"  >
     <slide v-for="slide in 2" :key="slide">
-<img src="https://cdn.pixabay.com/photo/2018/02/13/06/59/smartphone-3149992__340.jpg" class="object-cover w-full h-80" alt="">
+<img src="img/Tigre.jpg" class="object-cover w-full h-80 " alt="">
         
     </slide>
     <template #addons>
       <navigation />
+      <pagination />
     </template>
   </carousel>
 </template>
