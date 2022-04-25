@@ -16,7 +16,9 @@ Route::get('/', [App\Http\Controllers\WelcomeController::class,'index'], [
 
 Route::get('negocio/{negocio}', [App\Http\Controllers\Negocios\NegocioController::class,'index'])->name('negocio');
 Route::get('negocioLoc/{negocio}', [App\Http\Controllers\Negocios\NegocioController::class,'localization'])->name('negocioLoc');
-Route::get('negocioProd/{negocio}', [App\Http\Controllers\Negocios\NegocioController::class,'products'])->name('negocioProd');
+Route::get('negocioProd/{negocio}/{q?}', [App\Http\Controllers\Negocios\NegocioController::class,'products'])->name('negocioProd');
 Route::get('negocioServ/{negocio}', [App\Http\Controllers\Negocios\NegocioController::class,'services'])->name('negocioServ');
+
+Route::get('search', [App\Http\Controllers\Negocios\SearchController::class,'index'])->name('search');
 
 

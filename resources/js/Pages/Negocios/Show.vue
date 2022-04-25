@@ -14,6 +14,7 @@ export default {
         },
         wrapAround: Boolean,
         transition:Number,
+        q:String,
       
 
     },
@@ -82,7 +83,7 @@ export default {
                     <ResponsiveNavLink :active="route().current('negocioLoc')" :href="route('negocioLoc',negocio_select)" class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
                                Localización
                     </ResponsiveNavLink> 
-                    <ResponsiveNavLink :active="route().current('negocioProd')" :href="route('negocioProd',negocio_select)"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
+                    <ResponsiveNavLink :active="route().current('negocioProd')" :href="route('negocioProd', {negocio: negocio_select})"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
                                Productos
                     </ResponsiveNavLink>
                     <ResponsiveNavLink :active="route().current('negocioServ')" :href="route('negocioServ',negocio_select)"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded">

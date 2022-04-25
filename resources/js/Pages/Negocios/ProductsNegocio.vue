@@ -4,6 +4,7 @@ import Show from '@/Pages/Negocios/Show.vue';
 import Paginator from '@/Components/Paginator.vue';
 import tableResponsive from '@/Components/TableResponsive.vue';
 import JetInput from '@/Jetstream/Input.vue';
+import { Inertia } from '@inertiajs/inertia';
 
 export default {
  components:{
@@ -13,13 +14,26 @@ export default {
           JetInput,
  },
  props:{
-     negocio_select:{
-         type:Object,
-     },
+     negocio_select: Object,
      productos:Array,
  },
-
-
+ data(){
+     return{
+         q:'',
+         negocio:''
+     }
+ },
+ watch:{
+     q:function(value){
+     //  this.negoc = JSON.stringify(this.negocio_select);
+      // console.log('hola' + JSON.stringify(this.negocio_select));
+        // console.log('hola' + this.negoc)
+         Inertia.replace(this.route('negocioProd', {
+             negocio:this.negocio_select,
+             q:value
+        }));
+     }
+ },
 
 
 }
@@ -27,7 +41,7 @@ export default {
 
 
 <template>
-<Show :negocio_select="negocio_select">
+<Show :negocio_select="negocio_select" :q="q">
     <div class="bg-white rounded shadow-lg mt-1">
         <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -37,12 +51,10 @@ export default {
             <div class="px-6 py-4">
 
                 <JetInput
-                    id="q"
                     v-model="q"
                     type="text"
                     class="mt-1 block w-full text-sm"
                     placeholder="Ingrese el nombre del procucto que quiere buscar"
-                    autofocus
                 />
             </div>
 

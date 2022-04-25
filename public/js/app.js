@@ -23644,6 +23644,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
 /* harmony import */ var _Components_TableResponsive_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/TableResponsive.vue */ "./resources/js/Components/TableResponsive.vue");
 /* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
 
 
 
@@ -23656,10 +23658,25 @@ __webpack_require__.r(__webpack_exports__);
     JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
-    negocio_select: {
-      type: Object
-    },
+    negocio_select: Object,
     productos: Array
+  },
+  data: function data() {
+    return {
+      q: '',
+      negocio: ''
+    };
+  },
+  watch: {
+    q: function q(value) {
+      //  this.negoc = JSON.stringify(this.negocio_select);
+      // console.log('hola' + JSON.stringify(this.negocio_select));
+      // console.log('hola' + this.negoc)
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.replace(this.route('negocioProd', {
+        negocio: this.negocio_select,
+        q: value
+      }));
+    }
   }
 });
 
@@ -23729,7 +23746,8 @@ __webpack_require__.r(__webpack_exports__);
       type: Object
     },
     wrapAround: Boolean,
-    transition: Number
+    transition: Number,
+    q: String
   },
   components: {
     AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -24405,12 +24423,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      search: ''
+      search: '',
+      open: 'false'
     };
+  },
+  props: {
+    negocios: Array
+  },
+  watch: {
+    search: function search(value) {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.replace(this.route('search', {
+        search: value
+      }));
+    }
   }
 });
 
@@ -28539,19 +28570,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Show = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Show");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Show, {
-    negocio_select: $props.negocio_select
+    negocio_select: $props.negocio_select,
+    q: $data.q
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [$props.productos != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_JetInput, {
-        id: "q",
-        modelValue: _ctx.q,
+        modelValue: $data.q,
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-          return _ctx.q = $event;
+          return $data.q = $event;
         }),
         type: "text",
         "class": "mt-1 block w-full text-sm",
-        placeholder: "Ingrese el nombre del procucto que quiere buscar",
-        autofocus: ""
+        placeholder: "Ingrese el nombre del procucto que quiere buscar"
       }, null, 8
       /* PROPS */
       , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.productos.data, function (producto) {
@@ -28578,7 +28608,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["negocio_select"]);
+  , ["negocio_select", "q"]);
 }
 
 /***/ }),
@@ -28803,7 +28833,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["active", "href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ResponsiveNavLink, {
         active: _ctx.route().current('negocioProd'),
-        href: _ctx.route('negocioProd', $props.negocio_select),
+        href: _ctx.route('negocioProd', {
+          negocio: $props.negocio_select
+        }),
         "class": "text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -29966,8 +29998,43 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
+var _hoisted_4 = {
+  "class": "absolute w-full mt-1"
+};
+var _hoisted_5 = {
+  "class": "bg-white rounded-lg shadow-lg"
+};
+var _hoisted_6 = {
+  key: 0
+};
+var _hoisted_7 = {
+  "class": "flex"
+};
+var _hoisted_8 = ["src"];
+var _hoisted_9 = {
+  "class": "ml-4 text-gray-700"
+};
+var _hoisted_10 = {
+  "class": "text-lg font-semibold leading-5"
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Categoria: ", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = {
+  key: 1
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-lg leading-5"
+}, " No existe ningún registro con los parametros especificados ", -1
+/* HOISTED */
+);
+
+var _hoisted_14 = [_hoisted_13];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <x-jet-input  type=\"text\" class=\"w-full\" /> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     "class": "w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -29976,7 +30043,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "¿Estás buscando algún negocio?"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.search]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" \r\n       <JetInput\r\n                    id=\"search\"\r\n                    v-model=\"search\"\r\n                    type=\"text\"\r\n                    placeholder=\"¿Estás buscando algún negocio?\"\r\n                    class=\"w-full\"\r\n                    autofocus\r\n                /> "), _hoisted_3])]);
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.search]]), _hoisted_3]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [$props.negocios != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.negocios, function (negocio) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      "class": "px-4 py-3 space-y-1",
+      key: negocio.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      "class": "w-16 h-12 object-cover",
+      src: "/storage/".concat(negocio.images[0].url),
+      alt: ""
+    }, null, 8
+    /* PROPS */
+    , _hoisted_8), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(negocio.name), 1
+    /* TEXT */
+    ), _hoisted_11])])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, _hoisted_14))])])]);
 }
 
 /***/ }),

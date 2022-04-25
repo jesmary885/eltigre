@@ -19,6 +19,7 @@ class NegocioController extends Controller
         $negocio_select = Negocio::with('images')
                          ->where('id',$negocio->id)
                          ->first();
+                       //  dd($negocio_select);
         $categorias= Categoria::all();
         $subcategorias = Subcategoria::all();
         return Inertia::render('Negocios/InformacionNegocio',compact('negocio_select','categorias','subcategorias'));
@@ -35,16 +36,22 @@ class NegocioController extends Controller
         return Inertia::render('Negocios/LocalizationNegocio',compact('negocio_select','categorias','subcategorias'));
     }
 
-    public function products(Negocio $negocio)
+    public function products(Negocio $negocio, Request $request)
     {
+        
         $negocio_select = Negocio::with('images')
                          ->where('id',$negocio->id)
                          ->first();
+
         $categorias= Categoria::all();
         $subcategorias = Subcategoria::all();
 
         $productos = NegocioProducto::with('producto')
-                        ->where('negocio_id',$negocio->id)->paginate(5);
+                        ->where('negocio_id',$negocio->id)
+                        ->where('description','LIKE', '%' . $request->q .'%')
+                        ->paginate(5);
+
+                     //   dd($request->q);
         
                   
 
