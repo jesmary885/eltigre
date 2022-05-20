@@ -1,5 +1,15 @@
+<script>
+
+import { mixin as VueClickAway } from "vue3-click-away";
+
+export default {
+  mixins: [VueClickAway],
+}
+
+</script>
+
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import JetApplicationMark from '@/Jetstream/ApplicationMark.vue';
@@ -11,8 +21,7 @@ import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
 import Navigation from '@/Pages/Navigation.vue';
 import Search from '@/Pages/Search.vue';
 import VueGlide from 'vue-glide-js'
-import 'vue-glide-js/dist/vue-glide.css'
-
+import 'vue-glide-js/dist/vue-glide.css';
 
 
 defineProps({
@@ -20,6 +29,10 @@ defineProps({
 	 canLogin: Boolean,
 	canRegister: Boolean,
 	 categorias : Array,
+	 negocios: Array,
+	 ruta: String,
+	 negocio_select: Object,
+	 category: Object,
 	//  open: {
 	// 	 type: Boolean,
 	// 	 default: false,
@@ -36,6 +49,10 @@ const show = () =>  {
 		open.value=false;
 	}
 };
+
+ const close = () =>  {
+ 	open.value=false;
+ };
 
 const showingNavigationDropdown = ref(false);
 
@@ -62,10 +79,10 @@ const first_categorias = Inertia.page.props.categorias;
 <template class="font-sans antialiased">
 			<Head :title="title" />
 			<JetBanner />
-			
+
 			<div class="min-h-screen bg-gray-100">
 					<!-- <Navigation /> -->
-			<header class="bg-blue-800 sticky top-0" style="z-index: 900">
+			<header class="bg-blue-800 sticky top-0 m-0" style="z-index: 900">
 				<div class="container flex items-center h-16 justify-between md:justify-start">
 					<!-- logo -->
 					<div class="shrink-0 flex items-center">
@@ -77,7 +94,7 @@ const first_categorias = Inertia.page.props.categorias;
 					
 					<!-- fin logo -->
 					<!-- boton categorias -->
-					<a @click="show" class="flex items-center justify-center order-last md:order-first mr-6 px-6 md:px-4 bg-white bg-opacity-20 text-white cursor-pointer font-semibold h-full">
+					<a @click="show" v-click-away="close" class="flex items-center justify-center order-last md:order-first mr-6 px-6 md:px-4 bg-white bg-opacity-20 text-white cursor-pointer font-semibold h-full">
 						<svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
 							<path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 								d="M4 6h16M4 12h16M4 18h16" />
@@ -87,9 +104,16 @@ const first_categorias = Inertia.page.props.categorias;
 					</a>
 					<!-- buscador -->
 					<div class="flex-1 hidden md:block ml-4">
-						<Search />
+						<div v-if="negocio_select">
+						<Search :negocios="negocios" :ruta="ruta" :negocio_select="negocio_select"/>
+						</div>
+						<div v-else-if="category">
+						 <Search :negocios="negocios" :ruta="ruta" :category="category"/>
+						</div>
+						<div v-else>
+						 <Search :negocios="negocios" :ruta="ruta"/>
+						</div>
 					</div>
-				
 					<!-- fin buscador -->
 					<!-- opciones de usuario -->
 					<div class="mx-2 relative hidden md:block">
@@ -175,18 +199,21 @@ const first_categorias = Inertia.page.props.categorias;
 		
 				<nav :class="{'block': open, 'hidden': !open}"  id="navigation-menu" class="bg-gray-600 bg-opacity-25 w-full absolute" >
 				 <!-- Menu computadora -->
-					<div class="container h-full md:block hidden">
+					<div  class="container h-full hidden md:block">
 					 <!-- vista dinamica de menu -->
 						<div class="grid grid-cols-4 h-full relative">
 							<ul class="bg-white">
 					  
 								<div v-for="categoria in categorias" :key="categoria.id">
 									<li class="navigation-link text-gray-500 hover:bg-blue-500 hover:text-white">
-										<a class="py-2 px-4 text-sm flex items-center" href="#">
+										<Link class="py-2 px-4 text-sm flex items-center" :href="route('categories',{category: categoria})"  >
 											<div class="mr-2" v-html="categoria.icon"></div>
 											{{categoria.name}}
-										</a>
-
+										</Link>
+										<!-- <a class="py-2 px-4 text-sm flex items-center" href="#">
+											<div class="mr-2" v-html="categoria.icon"></div>
+											{{categoria.name}}
+										</a> -->
 										 <div class="navigation-submenu bg-gray-100 absolute w-3/4 h-full top-0 right-0 hidden">
 
 											<div class="grid grid-cols-4 p-4">
@@ -238,7 +265,7 @@ const first_categorias = Inertia.page.props.categorias;
 									</div>
 
 									<div class="col-span-3">
-										<img class="h-64 w-full object-cover object-center" :src="`/storage/categorias/7e928ae57bb76109e1de9ae0d67d2507.png`" alt="">
+										<img class="h-64 w-full object-cover object-center" :src="`/storage/categorias/ALIMENTOS.jpg`" alt="">
 									</div>
 								</div>
 							</div>
@@ -249,7 +276,7 @@ const first_categorias = Inertia.page.props.categorias;
 
 					<div class="bg-white h-full overflow-y-auto">
 						<div class="container bg-gray-200 py-3 mb-2">
-							<Search />
+							 <Search /> 
 						</div>
 						<ul>
 							<div v-for="categoria in categorias" :key="categoria.id">
@@ -302,7 +329,6 @@ const first_categorias = Inertia.page.props.categorias;
 		<main>
 			<slot />
 	
-
 		</main>
 	</div>
 </template>

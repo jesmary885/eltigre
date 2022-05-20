@@ -32,6 +32,7 @@ export default {
              negocio:this.negocio_select,
              q:value
         }));
+
      }
  },
 

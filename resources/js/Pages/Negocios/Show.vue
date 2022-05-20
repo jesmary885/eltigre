@@ -9,14 +9,11 @@ import ResponsiveNavLink from '@/Jetstream/NavLink.vue';
 
 export default {
     props:{
-        negocio_select:{
-            type:Object
-        },
+        negocio_select:Object,
         wrapAround: Boolean,
         transition:Number,
         q:String,
-      
-
+        negocios:Array,
     },
     components:{
             AppLayout,
@@ -51,7 +48,7 @@ export default {
 </style>
 
 <template>
-<AppLayout title="El tigre">
+<AppLayout title="El tigre" :negocios="negocios" ruta="negocio" :negocio_select="negocio_select">
 
     <div class="container py-8">
         <div class="grid grid-cols-2 gap-6">
@@ -65,7 +62,7 @@ export default {
                 <carousel :autoplay="5000" :wrapAround="true" >
                     <slide v-for="image in negocio_select.images" :key="image.id">
                          <figure>
-                        <img class="w-full object-cover object-center rounded" :src="`/storage/${image.url}`" alt="">
+                        <img class="w-full object-cover object-center rounded h-96" :src="`/storage/${image.url}`" alt="">
                          </figure>
                     </slide>
                      <template #addons>
@@ -76,19 +73,22 @@ export default {
             </div>
 
             <div>
-                <div class="bg-white rounded shadow-inner p-3 text-center">
-                    <ResponsiveNavLink :active="route().current('negocio')" :href="route('negocio',negocio_select)" class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
+                <div class="bg-white rounded shadow-inner p-3 text-center mb-2">
+                      <ResponsiveNavLink :active="route().current('negocio')" :href="route('negocio',{negocio: negocio_select})" class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
                                Información
-                    </ResponsiveNavLink>
-                    <ResponsiveNavLink :active="route().current('negocioLoc')" :href="route('negocioLoc',negocio_select)" class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
+                    </ResponsiveNavLink> 
+                     <ResponsiveNavLink :active="route().current('negocioLoc')" :href="route('negocioLoc',{negocio: negocio_select})" class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
                                Localización
                     </ResponsiveNavLink> 
                     <ResponsiveNavLink :active="route().current('negocioProd')" :href="route('negocioProd', {negocio: negocio_select})"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
                                Productos
                     </ResponsiveNavLink>
-                    <ResponsiveNavLink :active="route().current('negocioServ')" :href="route('negocioServ',negocio_select)"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded">
+                    <ResponsiveNavLink :active="route().current('negocioServ')" :href="route('negocioServ',{negocio: negocio_select})"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded mr-3">
                                Servicios
-                    </ResponsiveNavLink>
+                    </ResponsiveNavLink> 
+                    <ResponsiveNavLink :active="route().current('resena')" :href="route('resena',{negocio: negocio_select})"  class="text-lg font-semibold p-1 hover:text-blue-700 rounded">
+                               Reseñas
+                    </ResponsiveNavLink> 
                 </div>
 
                 <div class="w-full">

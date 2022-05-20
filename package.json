@@ -26,9 +26,14 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
+        "click-outside-vue3": "^4.0.1",
+        "v-click-outside": "^3.1.2",
+        "vue-click-outside": "^1.1.0",
+        "vue-clickaway": "^2.2.2",
         "vue-glide-js": "^1.3.14",
         "vue-ssr-carousel": "^1.4.0",
         "vue3-carousel": "^0.1.38",
+        "vue3-click-away": "^1.2.4",
         "vue3-google-map": "^0.10.0"
     }
 }

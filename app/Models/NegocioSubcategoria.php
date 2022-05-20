@@ -12,6 +12,7 @@ class NegocioSubcategoria extends Model
 
     protected $guarded = ['id','created_at','updated_at'];
 
+    //relcion uno a muchos inversa
     public function subcategoria(){
         return $this->belongsTo(Subcategoria::class);
     }

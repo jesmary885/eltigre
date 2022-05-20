@@ -18,11 +18,11 @@ export default {
 <template>
   <carousel :autoplay="12000" :wrapAround="true" :transition="800"  >
     <slide v-for="slide in 2" :key="slide">
-<img src="img/Tigre.jpg" class="object-cover w-full h-80 " alt="">
+<img src="img/Tigre.jpg" class="object-cover w-full h-full p-0 m-0" alt="">
         
     </slide>
     <template #addons>
-      <navigation />
+
       <pagination />
     </template>
   </carousel>

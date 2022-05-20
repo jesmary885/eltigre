@@ -19,36 +19,52 @@ class NegocioSubcategoriaSeeder extends Seeder
         $negocios_subcategorias = [
             [
                'negocio_id' => '1',
-               'subcategoria_id' => '7',
-           
+               'subcategoria_id' => '8',
             ],
             [
                 'negocio_id' => '2',
-               'subcategoria_id' => '3',
+               'subcategoria_id' => '8',
              ],
              [
                 'negocio_id' => '3',
-               'subcategoria_id' => '1',
+               'subcategoria_id' => '3',
              ],
              [
                 'negocio_id' => '4',
-               'subcategoria_id' => '9',
+               'subcategoria_id' => '1',
              ],
              [
                 'negocio_id' => '5',
-               'subcategoria_id' => '11',
+               'subcategoria_id' => '9',
              ],
              [
                 'negocio_id' => '6',
-               'subcategoria_id' => '13',
+               'subcategoria_id' => '9',
              ],
              [
                 'negocio_id' => '7',
-               'subcategoria_id' => '6',
+               'subcategoria_id' => '8',
              ],
-            
-         
-
+             [
+               'negocio_id' => '8',
+              'subcategoria_id' => '11',
+            ],
+            [
+               'negocio_id' => '9',
+              'subcategoria_id' => '13',
+            ],
+            [
+               'negocio_id' => '10',
+              'subcategoria_id' => '6',
+            ],
+            [
+               'negocio_id' => '11',
+              'subcategoria_id' => '15',
+            ],
+            [
+               'negocio_id' => '11',
+              'subcategoria_id' => '14',
+            ],
             ];
 
             foreach ($negocios_subcategorias as $negocios_subcategoria){

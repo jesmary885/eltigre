@@ -8,17 +8,15 @@ export default {
        
     },
     props:{
-        negocio_select:{
-            type:Object
-        },
-       
+        negocio_select:Object,
+        negocios: Array,
     }
     
 }
 </script>
 
 <template>
-    <Show :negocio_select=negocio_select>
+    <Show :negocio_select=negocio_select :negocios="negocios">
         <div class="bg-white rounded shadow-lg mt-1">
                         <div class="p-4 flex items-center">
                             <span class="flex items-center justify-center h-10 w-10 rounded-full bg-green-600">
@@ -44,13 +42,13 @@ export default {
                             </div>
                         </div>
 
-                        <div class="p-4">
+                        <div class="pt-4 pl-4 pr-4 pb-16 mb-6">
                             <div class="flex items-center">
                                 <span class="flex items-center justify-center h-10 w-10 rounded-full bg-green-600">
                                     <i class="far fas fa-taxi text-sm text-white"></i>
                                 </span>
                             
-                                <div class="ml-4">
+                                <div class="ml-4 ">
                                     <div v-if="negocio_select.delivery == 'si'">
                                         <p class="text-lg font-semibold text-greenLime-600">Delivery</p>
                                         <p>Este negocio posee servicio de delivery</p>

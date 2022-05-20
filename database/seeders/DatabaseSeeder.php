@@ -15,17 +15,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Storage::deleteDirectory('/public/negocios');
-        Storage::makeDirectory('/public/negocios');
-        
-        Storage::deleteDirectory('/public/categorias');
-        Storage::makeDirectory('/public/categorias');
+       /* Storage::deleteDirectory('public/negocios');
+        Storage::makeDirectory('public/negocios');
+        Storage::deleteDirectory('public/categorias');
+        Storage::makeDirectory('public/categorias');*/
 
         $this->call(UserSeeder::class);
         $this->call(CategoriaSeeder::class);
         $this->call(NegocioSeeder::class);
        
-        $this->call(SubcategoriaSeeder::class);
+       $this->call(SubcategoriaSeeder::class);
        $this->call(NegocioSubcategoriaSeeder::class);
        $this->call(MarcaSeeder::class);
        $this->call(ModeloSeeder::class);

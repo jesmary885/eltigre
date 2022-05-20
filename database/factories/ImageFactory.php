@@ -22,9 +22,6 @@ class ImageFactory extends Factory
     {
         return [
             'url' => 'negocios/' . $this->faker->image('public/storage/negocios', 640, 480, null, false)
-
-         
-
         ];
     }
 }
