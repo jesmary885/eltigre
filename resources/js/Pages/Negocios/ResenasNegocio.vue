@@ -25,6 +25,10 @@ export default {
 <template>
 <Show :negocio_select="negocio_select">
     <div class="bg-white rounded shadow-lg mt-1">
+        <div>
+            <input type="text" name="resena" placeholder="Añadir un comentario..." class="w-full px-4 py-2 text-base border-b-2 focus:outline-none focus:border-blue-400"/>
+        </div>
+
       
     </div>
 </Show>

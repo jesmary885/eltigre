@@ -223,11 +223,11 @@ const first_categorias = Inertia.page.props.categorias;
 													<ul>
 														<div v-for="subcategoria in subcategorias" :key="subcategoria.id">
 															<li>
-																<a>
+																<Link :href="route('categories',{category: categoria,subcategory: subcategoria})" >
 																		 <span class="text-gray-500 text-md inline-block font-semibold py-1 px-4 hover:text-blue-500 hover:cursor-pointer" v-if="subcategoria.categoria_id == categoria.id">
 																			{{subcategoria.name}}
 																		</span>
-																</a>
+																</Link>
 															</li>
 														</div>
 													</ul>
